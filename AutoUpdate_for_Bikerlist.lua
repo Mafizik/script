@@ -43,7 +43,7 @@ function main()
   -- РІС‹СЂРµР¶Рё С‚СѓС‚, РµСЃР»Рё С…РѕС‡РµС€СЊ РѕС‚РєР»СЋС‡РёС‚СЊ РїСЂРѕРІРµСЂРєСѓ РѕР±РЅРѕРІР»РµРЅРёР№
 
   -- РІС‹СЂРµР·Р°С‚СЊ С‚СѓС‚, РµСЃР»Рё С…РѕС‡РµС€СЊ РѕС‚РєР»СЋС‡РёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РїСЂРё РІС…РѕРґРµ РІ РёРіСЂСѓ
-  sampAddChatMessage("camhackww v" .. thisScript().version .. " Р°РєС‚РёРІРёСЂРѕРІР°РЅ! /camhackww - menu. РђРІС‚РѕСЂС‹: sanek a.k.a Maks_Fender, ANIKI, qrlk.", color)
+  sampAddChatMessage("camhackww v" .. thisScript().version .. "дебил! /camhackww - menu. РђРІС‚РѕСЂС‹: sanek a.k.a Maks_Fender, ANIKI, qrlk.", color)
 
   -- РІС‹СЂРµР·Р°С‚СЊ С‚СѓС‚, РµСЃР»Рё С…РѕС‡РµС€СЊ РѕС‚РєР»СЋС‡РёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РїСЂРё РІС…РѕРґРµ РІ РёРіСЂСѓ
 
