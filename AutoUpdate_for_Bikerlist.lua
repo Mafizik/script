@@ -1,8 +1,8 @@
 require "lib.moonloader"
 
 script_name("BikerList_By_Arbuzyan")
-script_authors("sanek a.k.a Maks_Fender", "qrlk")
-script_version("25.06.2022-announcement")
+script_authors("Mafizik")
+script_version("18.04.2024-mafizik")
 script_description("Простой камхак с обходом варнингов")
 script_url("https://github.com/qrlk/camhackww")
 
