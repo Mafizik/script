@@ -1,5 +1,7 @@
 require "lib.moonloader"
-
+-- с
+--ы
+--р
 script_name("BikerList_By_Arbuzyan")
 script_authors("Mafizik")
 script_version("18.04.2024")
