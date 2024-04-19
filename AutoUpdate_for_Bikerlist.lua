@@ -1,7 +1,4 @@
 require "lib.moonloader"
--- с
---ы
---р
 script_name("BikerList_By_Arbuzyan")
 script_authors("Mafizik")
 script_version("18.04.2024")
@@ -41,17 +38,17 @@ function main()
     "https://vk.com/id553788814",
     "camhackwwlog"
   )
-  openchangelog("camhackwwlog", "https://vk.com/id553788814")
-  -- РІС‹СЂРµР¶Рё С‚СѓС‚, РµСЃР»Рё С…РѕС‡РµС€СЊ РѕС‚РєР»СЋС‡РёС‚СЊ РїСЂРѕРІРµСЂРєСѓ РѕР±РЅРѕРІР»РµРЅРёР№
+  openchangelog("camhackwwlog", "http://qrlk.me/sampvk")
+  -- ������ ���, ���� ������ ��������� �������� ����������
 
-  -- РІС‹СЂРµР·Р°С‚СЊ С‚СѓС‚, РµСЃР»Рё С…РѕС‡РµС€СЊ РѕС‚РєР»СЋС‡РёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РїСЂРё РІС…РѕРґРµ РІ РёРіСЂСѓ
-  sampAddChatMessage("camhackww v" .. thisScript().version .. "дебил! /camhackww - menu. РђРІС‚РѕСЂС‹: sanek a.k.a Maks_Fender, ANIKI, qrlk.", color)
+  -- �������� ���, ���� ������ ��������� ��������� ��� ����� � ����
+  sampAddChatMessage("camhackww v" .. thisScript().version .. " �����������! /camhackww - menu. ������: sanek a.k.a Maks_Fender, ANIKI, qrlk.", color)
 
-  -- РІС‹СЂРµР·Р°С‚СЊ С‚СѓС‚, РµСЃР»Рё С…РѕС‡РµС€СЊ РѕС‚РєР»СЋС‡РёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РїСЂРё РІС…РѕРґРµ РІ РёРіСЂСѓ
+  -- �������� ���, ���� ������ ��������� ��������� ��� ����� � ����
 
   sampRegisterChatCommand('mafizik', function()
-sampAddChatMessage('[TEST By Mafizik] РћР±РЅРѕРІР»РµРЅ, РµСЃ', -1)
-end)
+sampAddChatMessage('[TEST By Mafizik] �������� ........ ', -1)
+  end)
   wait(-1)
 end
 
@@ -61,7 +58,7 @@ end
 --------------------------------------------------------------------------------
 ------------------------------------UPDATE--------------------------------------
 --------------------------------------------------------------------------------
---Р°РІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ РІ РѕР±РјРµРЅ РЅР° СЃС‚Р°С‚РёСЃС‚РёРєСѓ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ
+--�������������� � ����� �� ���������� �������������
 function update(php, prefix, url, komanda)
   komandaA = komanda
   local dlstatus = require("moonloader").download_status
@@ -149,8 +146,8 @@ function update(php, prefix, url, komanda)
                   local color = -1
                   sampAddChatMessage(
                     (prefix ..
-                      "РћР±РЅР°СЂСѓР¶РµРЅРѕ РѕР±РЅРѕРІР»РµРЅРёРµ. РџС‹С‚Р°СЋСЃСЊ РѕР±РЅРѕРІРёС‚СЊСЃСЏ c " ..
-                    thisScript().version .. " РЅР° " .. updateversion),
+                      "���������� ����������. ������� ���������� c " ..
+                    thisScript().version .. " �� " .. updateversion),
                     color
                   )
                   wait(250)
@@ -159,13 +156,13 @@ function update(php, prefix, url, komanda)
                     thisScript().path,
                     function(id3, status1, p13, p23)
                       if status1 == dlstatus.STATUS_DOWNLOADINGDATA then
-                        print(string.format("Р—Р°РіСЂСѓР¶РµРЅРѕ %d РёР· %d.", p13, p23))
+                        print(string.format("��������� %d �� %d.", p13, p23))
                       elseif status1 == dlstatus.STATUS_ENDDOWNLOADDATA then
-                        print("Р—Р°РіСЂСѓР·РєР° РѕР±РЅРѕРІР»РµРЅРёСЏ Р·Р°РІРµСЂС€РµРЅР°.")
+                        print("�������� ���������� ���������.")
                         if komandaA ~= nil then
                           sampAddChatMessage(
                             (prefix ..
-                              "РћР±РЅРѕРІР»РµРЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ! РџРѕРґСЂРѕР±РЅРµРµ РѕР± РѕР±РЅРѕРІР»РµРЅРёРё - /" ..
+                              "���������� ���������! ��������� �� ���������� - /" ..
                             komandaA .. "."),
                             color
                           )
@@ -182,7 +179,7 @@ function update(php, prefix, url, komanda)
                         if goupdatestatus == nil then
                           sampAddChatMessage(
                             (prefix ..
-                            "РћР±РЅРѕРІР»РµРЅРёРµ РїСЂРѕС€Р»Рѕ РЅРµСѓРґР°С‡РЅРѕ. Р—Р°РїСѓСЃРєР°СЋ СѓСЃС‚Р°СЂРµРІС€СѓСЋ РІРµСЂСЃРёСЋ.."),
+                            "���������� ������ ��������. �������� ���������� ������.."),
                             color
                           )
                           update = false
@@ -195,14 +192,14 @@ function update(php, prefix, url, komanda)
               )
             else
               update = false
-              print("v" .. thisScript().version .. ": РћР±РЅРѕРІР»РµРЅРёРµ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ.")
+              print("v" .. thisScript().version .. ": ���������� �� ���������.")
             end
           end
         else
           print(
             "v" ..
             thisScript().version ..
-            ": РќРµ РјРѕРіСѓ РїСЂРѕРІРµСЂРёС‚СЊ РѕР±РЅРѕРІР»РµРЅРёРµ. РЎРјРёСЂРёС‚РµСЃСЊ РёР»Рё РїСЂРѕРІРµСЂСЊС‚Рµ СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ РЅР° " .. url
+            ": �� ���� ��������� ����������. ��������� ��� ��������� �������������� �� " .. url
           )
           update = false
         end
@@ -225,14 +222,14 @@ function openchangelog(komanda, url)
           end
           sampShowDialog(
             222228,
-            "{ff0000}Р�РЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕР±РЅРѕРІР»РµРЅРёРё",
+            "{ff0000}���������� �� ����������",
             "{ffffff}" ..
             thisScript().name ..
-            " {ffe600}СЃРѕР±РёСЂР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ СЃРІРѕР№ changelog РґР»СЏ РІР°СЃ.\nР•СЃР»Рё РІС‹ РЅР°Р¶РјРµС‚Рµ {ffffff}РћС‚РєСЂС‹С‚СЊ{ffe600}, СЃРєСЂРёРїС‚ РїРѕРїС‹С‚Р°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ СЃСЃС‹Р»РєСѓ:\n        {ffffff}" ..
+            " {ffe600}���������� ������� ���� changelog ��� ���.\n���� �� ������� {ffffff}�������{ffe600}, ������ ���������� ������� ������:\n        {ffffff}" ..
             changelogurl ..
-            "\n{ffe600}Р•СЃР»Рё РІР°С€Р° РёРіСЂР° РєСЂР°С€РЅРµС‚СЃСЏ, РІС‹ РјРѕР¶РµС‚Рµ РѕС‚РєСЂС‹С‚СЊ СЌС‚Сѓ СЃСЃС‹Р»РєСѓ СЃР°РјРё.",
-            "РћС‚РєСЂС‹С‚СЊ",
-            "РћС‚РјРµРЅРёС‚СЊ"
+            "\n{ffe600}���� ���� ���� ���������, �� ������ ������� ��� ������ ����.",
+            "�������",
+            "��������"
           )
           while sampIsDialogActive() do
             wait(100)
@@ -246,9 +243,6 @@ function openchangelog(komanda, url)
     end
   )
 end
--- Р’Р°РЅСЏ
--- РџРѕРґ
--- РЎРІРёРЅРѕРє
 --------------------------------------------------------------------------------
 --------------------------------------3RD---------------------------------------
 --------------------------------------------------------------------------------
@@ -301,3 +295,4 @@ function submenus_show(menu, caption, select_button, close_button, back_button)
   end
   return display(menu, 31337, caption or menu.title)
 end
+
