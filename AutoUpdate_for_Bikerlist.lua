@@ -30,8 +30,8 @@ function main()
   while not isSampAvailable() do
     wait(100)
   end
-
-  -- РІС‹СЂРµР¶Рё С‚СѓС‚, РµСЃР»Рё С…РѕС‡РµС€СЊ РѕС‚РєР»СЋС‡РёС‚СЊ РїСЂРѕРІРµСЂРєСѓ РѕР±РЅРѕРІР»РµРЅРёР№
+  --������ ���, ���� ������ ��������� �������� ����������
+  -- �����
   update(
     "https://raw.githubusercontent.com/Mafizik/script/main/Test_Update_for_bikerlist.json",
     "[" .. string.upper(thisScript().name) .. "]: ",
