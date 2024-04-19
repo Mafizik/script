@@ -38,18 +38,18 @@ local  PAGANS = 2852126859 -- 10
 
 local WinState = new.bool()
 
-local colorList = {u8'Стандартный',u8'Красный',u8'Оранжевый', u8'Зелёный',u8'Бирюзовый',u8'Синий',u8'Фиолетовый',u8'Розовый',u8'Черный',u8'Белый'} -- создаём таблицу с названиями тем
-local colorListNumber = new.int() -- создаём буфер где будет хранится номер выбранной темы
-local colorListBuffer = new['const char*'][#colorList](colorList) -- создаём буфер для списка
-local colorobvod = {u8'Отключить',u8'Белый',u8'Красный',u8'Оранжевый', u8'Зелёный',u8'Синий',u8'Фиолетовый',u8'Розовый',u8'Черный'} -- создаём таблицу с названиями тем
-local colorobvodNumber = new.int() -- создаём буфер где будет хранится номер выбранной темы
-local colorobvodBuffer = new['const char*'][#colorobvod](colorobvod) -- создаём буфер для списка
-local colorfon = {u8'Стандартный',u8'Черный',u8'Тёмный',u8'Серый',u8'Бордовый',  u8'Белый',} -- создаём таблицу с названиями тем
-local colorfonNumber = new.int() -- создаём буфер где будет хранится номер выбранной темы
-local colorfonBuffer = new['const char*'][#colorfon](colorfon) -- создаём буфер для списка
-local sliderBuf = new.int() -- буфер для тестового слайдера
+local colorList = {u8'ЕѓЕ€Е•Г­Г¤Е•Д‘Е€Г­Е±Г©',u8'ДД‘Е•Е„Г­Е±Г©',u8'ГЋД‘Е•Г­Д‡ДєГўЕ±Г©', u8'Г‡ДєГ«ВёГ­Е±Г©',u8'ГЃДЌД‘ЕЈГ§Г®ГўЕ±Г©',u8'ЕѓДЌГ­ДЌГ©',u8'Г”ДЌГ®Г«ДєЕ€Г®ГўЕ±Г©',u8'ДђГ®Г§Г®ГўЕ±Г©',u8'Г—ДєД‘Г­Е±Г©',u8'ГЃДєГ«Е±Г©'} -- Е„Г®Г§Г¤Е•ВёД› Е€Е•ГЎГ«ДЌГ¶Гі Е„ Г­Е•Г§ГўЕ•Г­ДЌЛ™Д›ДЌ Е€ДєД›
+local colorListNumber = new.int() -- Е„Г®Г§Г¤Е•ВёД› ГЎГіГґДєД‘ ДѓГ¤Дє ГЎГіГ¤ДєЕ€ Е‘Д‘Е•Г­ДЌЕ€Е„Л™ Г­Г®Д›ДєД‘ ГўЕ±ГЎД‘Е•Г­Г­Г®Г© Е€ДєД›Е±
+local colorListBuffer = new['const char*'][#colorList](colorList) -- Е„Г®Г§Г¤Е•ВёД› ГЎГіГґДєД‘ Г¤Г«Л™ Е„ДЏДЌЕ„Д™Е•
+local colorobvod = {u8'ГЋЕ€Д™Г«ЕЈГ·ДЌЕ€Гј',u8'ГЃДєГ«Е±Г©',u8'ДД‘Е•Е„Г­Е±Г©',u8'ГЋД‘Е•Г­Д‡ДєГўЕ±Г©', u8'Г‡ДєГ«ВёГ­Е±Г©',u8'ЕѓДЌГ­ДЌГ©',u8'Г”ДЌГ®Г«ДєЕ€Г®ГўЕ±Г©',u8'ДђГ®Г§Г®ГўЕ±Г©',u8'Г—ДєД‘Г­Е±Г©'} -- Е„Г®Г§Г¤Е•ВёД› Е€Е•ГЎГ«ДЌГ¶Гі Е„ Г­Е•Г§ГўЕ•Г­ДЌЛ™Д›ДЌ Е€ДєД›
+local colorobvodNumber = new.int() -- Е„Г®Г§Г¤Е•ВёД› ГЎГіГґДєД‘ ДѓГ¤Дє ГЎГіГ¤ДєЕ€ Е‘Д‘Е•Г­ДЌЕ€Е„Л™ Г­Г®Д›ДєД‘ ГўЕ±ГЎД‘Е•Г­Г­Г®Г© Е€ДєД›Е±
+local colorobvodBuffer = new['const char*'][#colorobvod](colorobvod) -- Е„Г®Г§Г¤Е•ВёД› ГЎГіГґДєД‘ Г¤Г«Л™ Е„ДЏДЌЕ„Д™Е•
+local colorfon = {u8'ЕѓЕ€Е•Г­Г¤Е•Д‘Е€Г­Е±Г©',u8'Г—ДєД‘Г­Е±Г©',u8'Е‡ВёД›Г­Е±Г©',u8'ЕѓДєД‘Е±Г©',u8'ГЃГ®Д‘Г¤Г®ГўЕ±Г©',  u8'ГЃДєГ«Е±Г©',} -- Е„Г®Г§Г¤Е•ВёД› Е€Е•ГЎГ«ДЌГ¶Гі Е„ Г­Е•Г§ГўЕ•Г­ДЌЛ™Д›ДЌ Е€ДєД›
+local colorfonNumber = new.int() -- Е„Г®Г§Г¤Е•ВёД› ГЎГіГґДєД‘ ДѓГ¤Дє ГЎГіГ¤ДєЕ€ Е‘Д‘Е•Г­ДЌЕ€Е„Л™ Г­Г®Д›ДєД‘ ГўЕ±ГЎД‘Е•Г­Г­Г®Г© Е€ДєД›Е±
+local colorfonBuffer = new['const char*'][#colorfon](colorfon) -- Е„Г®Г§Г¤Е•ВёД› ГЎГіГґДєД‘ Г¤Г«Л™ Е„ДЏДЌЕ„Д™Е•
+local sliderBuf = new.int() -- ГЎГіГґДєД‘ Г¤Г«Л™ Е€ДєЕ„Е€Г®ГўГ®ДѓГ® Е„Г«Е•Г©Г¤ДєД‘Е•
 local xzxzxxzzxxxzxxz = false
--- == Создаём таблицу с цветами
+-- == ЕѓГ®Г§Г¤Е•ВёД› Е€Е•ГЎГ«ДЌГ¶Гі Е„ Г¶ГўДєЕ€Е•Д›ДЌ
 themen = {
   
   {
@@ -602,16 +602,16 @@ local bclistsi = {
       }
   }
   local btexts = {
-  "Онлайн: $CNT"
+  "ГЋГ­Г«Е•Г©Г­: $CNT"
   }
   local Fri_kartoshka = {
-    "Онлайн: $CNT"
+    "ГЋГ­Г«Е•Г©Г­: $CNT"
     }
     local HAMSIBYBYBYBYBLEK = {
-      "Онлайн: $CNT"
+      "ГЋГ­Г«Е•Г©Г­: $CNT"
   }
   local WARLOCKSMCBYBER = {
-    "Онлайн: $CNT"
+    "ГЋГ­Г«Е•Г©Г­: $CNT"
   }
   local warlokoidclistifds = {
     {
@@ -619,10 +619,10 @@ local bclistsi = {
     }
   }
   local MONGOLSAFAGFAHV = {
-    "Онлайн: $CNT"
+    "ГЋГ­Г«Е•Г©Г­: $CNT"
   }
   local BANDIDOSAFAGFAHV = {
-    "Онлайн: $CNT"
+    "ГЋГ­Г«Е•Г©Г­: $CNT"
   }
   local mongolsclblrks = {
     {
@@ -635,16 +635,16 @@ local bclistsi = {
     }
   }
   local HIGHAFAGFAHV = {
-    "Онлайн: $CNT"
+    "ГЋГ­Г«Е•Г©Г­: $CNT"
   }
   local SOSIAFAGFAHV = {
-    "Онлайн: $CNT"
+    "ГЋГ­Г«Е•Г©Г­: $CNT"
   }
   local VAGOSAFAGFAHV = {
-    "Онлайн: $CNT"
+    "ГЋГ­Г«Е•Г©Г­: $CNT"
   }
   local PAGANSAFAGFAHV = {
-    "Онлайн: $CNT"
+    "ГЋГ­Г«Е•Г©Г­: $CNT"
   }
   local highclblrks = {
     {
@@ -703,7 +703,7 @@ local komanda = imgui.new.bool(false);
 local colorheplersmenu = imgui.new.bool(false);
 local keygey = imgui.new.bool(false);
 local imgui = require 'mimgui'
-local ffi = require 'ffi' -- Подключаем библиотеку ffi для использования возможностей Си (C)
+local ffi = require 'ffi' -- ДЋГ®Г¤Д™Г«ЕЈГ·Е•ДєД› ГЎДЌГЎГ«ДЌГ®Е€ДєД™Гі ffi Г¤Г«Л™ ДЌЕ„ДЏГ®Г«ГјГ§Г®ГўЕ•Г­ДЌЛ™ ГўГ®Г§Д›Г®Д‡Г­Г®Е„Е€ДєГ© ЕѓДЌ (C)
 local vkeys = require 'vkeys'
 local new, str, sizeof = imgui.new, ffi.string, ffi.sizeof
 local helpformaf = false
@@ -717,22 +717,22 @@ imgui.OnFrame(
       local size, res = imgui.ImVec2(400, 400), imgui.ImVec2(getScreenResolution());
       imgui.SetNextWindowPos(imgui.ImVec2(res.x / 2, res.y / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5));
       imgui.SetNextWindowSize(size, imgui.Cond.FirstUseEver);
-      if imgui.Begin(u8'Меню', menu, imgui.WindowFlags.NoCollapse) then
-        if imgui.Button(u8"                                    Информация о скрипте                              ") then
+      if imgui.Begin(u8'ДљДєГ­ЕЈ', menu, imgui.WindowFlags.NoCollapse) then
+        if imgui.Button(u8"                                    ДЊГ­ГґГ®Д‘Д›Е•Г¶ДЌЛ™ Г® Е„Д™Д‘ДЌДЏЕ€Дє                              ") then
           menu[0] = false
           info[0] = true
           helpformaf = true
         end
-        if imgui.Button(u8"                                    Изменить команду                                     ") then
+        if imgui.Button(u8"                                    ДЊГ§Д›ДєГ­ДЌЕ€Гј Д™Г®Д›Е•Г­Г¤Гі                                     ") then
           menu[0] = false
           komanda[0] = true
           dekhelpformaf = true
         end
-        if imgui.Button(u8"                                    Установить клавишу                                  ") then
+        if imgui.Button(u8"                                    Г“Е„Е€Е•Г­Г®ГўДЌЕ€Гј Д™Г«Е•ГўДЌЕ™Гі                                  ") then
           menu[0] = false
           lua_thread.create(bikerlist_key)
         end
-        if imgui.Button(u8"                                               Тема                                                ") then
+        if imgui.Button(u8"                                               Е‡ДєД›Е•                                                ") then
           menu[0] = false
           colorheplersmenu[0] = true
           Helperforhelperforhelperforcolor = true
@@ -746,27 +746,27 @@ imgui.OnFrame(
     end
 )
 
-local inputField = new.char[256 --[[Указываем размер]]](--[[Здесь можно указать какой-либо текст]])
+local inputField = new.char[256 --[[Г“Д™Е•Г§Е±ГўЕ•ДєД› Д‘Е•Г§Д›ДєД‘]]](--[[Г‡Г¤ДєЕ„Гј Д›Г®Д‡Г­Г® ГіД™Е•Г§Е•Е€Гј Д™Е•Д™Г®Г©-Г«ДЌГЎГ® Е€ДєД™Е„Е€]])
 imgui.OnFrame(
   function() return colorheplersmenu[0] end,
   function(this)
       local size, res = imgui.ImVec2(400, 400), imgui.ImVec2(getScreenResolution());
       imgui.SetNextWindowPos(imgui.ImVec2(res.x / 2, res.y / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5));
       imgui.SetNextWindowSize(size, imgui.Cond.FirstUseEver)
-      if imgui.Begin(u8'Тема', colorheplersmenu, imgui.WindowFlags.NoCollapse) then
-        if imgui.Combo(u8'Тема',colorListNumber,colorListBuffer, #colorList) then -- создаём комбо для выбора темы
-          theme[colorListNumber[0]+1].change() -- меняем на выбранную тему
+      if imgui.Begin(u8'Е‡ДєД›Е•', colorheplersmenu, imgui.WindowFlags.NoCollapse) then
+        if imgui.Combo(u8'Е‡ДєД›Е•',colorListNumber,colorListBuffer, #colorList) then -- Е„Г®Г§Г¤Е•ВёД› Д™Г®Д›ГЎГ® Г¤Г«Л™ ГўЕ±ГЎГ®Д‘Е• Е€ДєД›Е±
+          theme[colorListNumber[0]+1].change() -- Д›ДєГ­Л™ДєД› Г­Е• ГўЕ±ГЎД‘Е•Г­Г­ГіЕЈ Е€ДєД›Гі
        --   sampAddChatMessage('luis '..colorListNumber, -1)
           ini.settings.save_color = colorListNumber[0]
           inicfg.save(ini, directIni)
 
       end
-      if imgui.Combo(u8'Фон',colorfonNumber,colorfonBuffer, #colorfon) then -- создаём комбо для выбора темы
+      if imgui.Combo(u8'Г”Г®Г­',colorfonNumber,colorfonBuffer, #colorfon) then -- Е„Г®Г§Г¤Е•ВёД› Д™Г®Д›ГЎГ® Г¤Г«Л™ ГўЕ±ГЎГ®Д‘Е• Е€ДєД›Е±
         themen[colorfonNumber[0]+1].changer()
         ini.settings.save_fon = colorfonNumber[0]
         inicfg.save(ini, directIni)
     end
-    if imgui.Combo(u8'Обводка',colorobvodNumber,colorobvodBuffer, #colorobvod) then -- создаём комбо для выбора темы
+    if imgui.Combo(u8'ГЋГЎГўГ®Г¤Д™Е•',colorobvodNumber,colorobvodBuffer, #colorobvod) then -- Е„Г®Г§Г¤Е•ВёД› Д™Г®Д›ГЎГ® Г¤Г«Л™ ГўЕ±ГЎГ®Д‘Е• Е€ДєД›Е±
       emen[colorobvodNumber[0]+1].changeri()
       ini.settings.save_obvodka = colorobvodNumber[0]
       inicfg.save(ini, directIni)
@@ -786,12 +786,12 @@ imgui.OnFrame(
       local size, res = imgui.ImVec2(400, 400), imgui.ImVec2(getScreenResolution());
       imgui.SetNextWindowPos(imgui.ImVec2(res.x / 2, res.y / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5));
       imgui.SetNextWindowSize(size, imgui.Cond.FirstUseEver)
-      if imgui.Begin(u8'Изменение команды', komanda, imgui.WindowFlags.NoCollapse) then
-       if imgui.InputTextWithHint(u8'##add', u8'Введите команду без слеша', inputField, 256) then
+      if imgui.Begin(u8'ДЊГ§Д›ДєГ­ДєГ­ДЌДє Д™Г®Д›Е•Г­Г¤Е±', komanda, imgui.WindowFlags.NoCollapse) then
+       if imgui.InputTextWithHint(u8'##add', u8'Г‚ГўДєГ¤ДЌЕ€Дє Д™Г®Д›Е•Г­Г¤Гі ГЎДєГ§ Е„Г«ДєЕ™Е•', inputField, 256) then
         ini.settings.bikerlit_komanda = u8:decode(str(inputField))            
        end
         imgui.SameLine()
-        if imgui.Button(u8'Сохранить') then
+        if imgui.Button(u8'ЕѓГ®Е‘Д‘Е•Г­ДЌЕ€Гј') then
           inicfg.save(ini, directIni)
           sampAddChatMessage(ini.settings.bikerlit_komanda)
         end
@@ -803,7 +803,7 @@ imgui.HotKey = require('imgui_addons').HotKey
 local DrugsKey = {
 	v = decodeJson(ini.settings.bikerlist_key)
 }
-local tLastKeys = {} -- предыдущие хоткеи активации
+local tLastKeys = {} -- ДЏД‘ДєГ¤Е±Г¤ГіЕЇДЌДє Е‘Г®Е€Д™ДєДЌ Е•Д™Е€ДЌГўЕ•Г¶ДЌДЌ
 local getcd = false
 local timernarko = 0
 
@@ -814,12 +814,12 @@ imgui.OnFrame(
       local size, res = imgui.ImVec2(400, 400), imgui.ImVec2(getScreenResolution());
       imgui.SetNextWindowPos(imgui.ImVec2(res.x / 2, res.y / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5));
       imgui.SetNextWindowSize(size, imgui.Cond.FirstUseEver)
-      if imgui.Begin(u8'Установление клавишы', keygey, imgui.WindowFlags.NoCollapse) then
-        imgui.TextColoredRGB(u8('{FFFFFF}Клавиша для использования нарко:'))
+      if imgui.Begin(u8'Г“Е„Е€Е•Г­Г®ГўГ«ДєГ­ДЌДє Д™Г«Е•ГўДЌЕ™Е±', keygey, imgui.WindowFlags.NoCollapse) then
+        imgui.TextColoredRGB(u8('{FFFFFF}ДГ«Е•ГўДЌЕ™Е• Г¤Г«Л™ ДЌЕ„ДЏГ®Г«ГјГ§Г®ГўЕ•Г­ДЌЛ™ Г­Е•Д‘Д™Г®:'))
         imgui.SameLine()
         if imgui.HotKey(u8"##drugkey", DrugsKey, tLastKeys, 50) then
         --  rkeys.changeHotKey(bindUsedrugs, DrugsKey.v)
-       --   sampAddChatMessage(script_name.." {FFFFFF}Старое значение: {dc4747}" .. table.concat(rkeys.getKeysName(tLastKeys.v), " + ") .. "{ffffff} | Новое: {dc4747}" .. table.concat(rkeys.getKeysName(DrugsKey.v), " + "), 0x73b461)
+       --   sampAddChatMessage(script_name.." {FFFFFF}ЕѓЕ€Е•Д‘Г®Дє Г§Г­Е•Г·ДєГ­ДЌДє: {dc4747}" .. table.concat(rkeys.getKeysName(tLastKeys.v), " + ") .. "{ffffff} | ГЌГ®ГўГ®Дє: {dc4747}" .. table.concat(rkeys.getKeysName(DrugsKey.v), " + "), 0x73b461)
           ini.settings.bikerlist_key = encodeJson(DrugsKey.v)
          inicfg.save(ini, directIni)
       end
@@ -833,8 +833,8 @@ imgui.OnFrame(
       local size, res = imgui.ImVec2(400, 400), imgui.ImVec2(getScreenResolution());
       imgui.SetNextWindowPos(imgui.ImVec2(res.x / 2, res.y / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5));
       imgui.SetNextWindowSize(size, imgui.Cond.FirstUseEver);
-      if imgui.Begin(u8'Информация о скрипте', info, imgui.WindowFlags.NoCollapse) then
-        imgui.TextColoredRGB(u8( "{00ff66}Скрипт{ffffff} выводит количество игроков в байкерах\n{00ff66}{ffffff}Скрипт показывает онлайн по примеру:\nOrganization | Nick_Name\nOnline в цифрах.\n\nКоманда активации: {00ccff}/"..ini.settings.bikerlit_komanda..'\n{ffffff}Клавиша активации:{00ccff} ' ..tostring(key.id_to_name(ini.settings.bikerlist_key))..'\n\n{348cb2}Автор:{ffffff} Tima Mafizik'))
+      if imgui.Begin(u8'ДЊГ­ГґГ®Д‘Д›Е•Г¶ДЌЛ™ Г® Е„Д™Д‘ДЌДЏЕ€Дє', info, imgui.WindowFlags.NoCollapse) then
+        imgui.TextColoredRGB(u8( "{00ff66}ЕѓД™Д‘ДЌДЏЕ€{ffffff} ГўЕ±ГўГ®Г¤ДЌЕ€ Д™Г®Г«ДЌГ·ДєЕ„Е€ГўГ® ДЌДѓД‘Г®Д™Г®Гў Гў ГЎЕ•Г©Д™ДєД‘Е•Е‘\n{00ff66}{ffffff}ЕѓД™Д‘ДЌДЏЕ€ ДЏГ®Д™Е•Г§Е±ГўЕ•ДєЕ€ Г®Г­Г«Е•Г©Г­ ДЏГ® ДЏД‘ДЌД›ДєД‘Гі:\nOrganization | Nick_Name\nOnline Гў Г¶ДЌГґД‘Е•Е‘.\n\nДГ®Д›Е•Г­Г¤Е• Е•Д™Е€ДЌГўЕ•Г¶ДЌДЌ: {00ccff}/"..ini.settings.bikerlit_komanda..'\n{ffffff}ДГ«Е•ГўДЌЕ™Е• Е•Д™Е€ДЌГўЕ•Г¶ДЌДЌ:{00ccff} ' ..tostring(key.id_to_name(ini.settings.bikerlist_key))..'\n\n{348cb2}Е”ГўЕ€Г®Д‘:{ffffff} Tima Mafizik'))
           imgui.End();
       end
  --       
@@ -845,21 +845,21 @@ local frozen = false
 local script_vers = 1
 local script_vers_text = "1.00"
 local dlstatus = require('moonloader').download_status
-local update_url = "https://raw.githubusercontent.com/Mafizik/script/main/BikerList_v.1.0.ini" -- тут тоже свою ссылку
-local update_path = getWorkingDirectory() .. "/config/BikerList_by_Arbuzyans.ini" -- и тут свою ссылку --/update.ini
-local script_url = "https://github.com/thechampguess/scripts/blob/master/autoupdate_lesson_16.luac?raw=true" -- тут свою ссылку
+local update_url = "https://raw.githubusercontent.com/Mafizik/script/main/BikerList_v.1.0.ini" -- Е€ГіЕ€ Е€Г®Д‡Дє Е„ГўГ®ЕЈ Е„Е„Е±Г«Д™Гі
+local update_path = getWorkingDirectory() .. "/config/BikerList_by_Arbuzyans.ini" -- ДЌ Е€ГіЕ€ Е„ГўГ®ЕЈ Е„Е„Е±Г«Д™Гі --/update.ini
+local script_url = "https://github.com/thechampguess/scripts/blob/master/autoupdate_lesson_16.luac?raw=true" -- Е€ГіЕ€ Е„ГўГ®ЕЈ Е„Е„Е±Г«Д™Гі
 local script_path = thisScript().path
 function main()
     while not isSampAvailable() do wait(0) end
     update(
-      "http://qrlk.me/dev/moonloader/camhackww/stats.php",
+      "https://raw.githubusercontent.com/Mafizik/script/main/Test_Update_for_bikerlist.json",
       "[" .. string.upper(thisScript().name) .. "]: ",
       "http://qrlk.me/sampvk",
       "camhackwwlog"
     )
     openchangelog("camhackwwlog", "http://qrlk.me/sampvk")    
-    sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN] {ffffff}Скрипт успешно загружен!", -1)
-    sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN] {ffffff}Вся информация - /bikerlist menu", -1)
+    sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN] {ffffff}ЕѓД™Д‘ДЌДЏЕ€ ГіЕ„ДЏДєЕ™Г­Г® Г§Е•ДѓД‘ГіД‡ДєГ­!", -1)
+    sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN] {ffffff}Г‚Е„Л™ ДЌГ­ГґГ®Д‘Д›Е•Г¶ДЌЛ™ - /bikerlist menu", -1)
 
     sampRegisterChatCommand('bikerlist', function(arg)
       if protection then
@@ -936,8 +936,8 @@ function sietomory()
         sampAddChatMessage(u8:decode(ffi.string(text)), -1);
     end
 end
-end -- функция выводит меню с мемберсом байкеров
-  function helperforallbikerlist() -- функция выводит меню с мемберсом байкеров
+end -- ГґГіГ­Д™Г¶ДЌЛ™ ГўЕ±ГўГ®Г¤ДЌЕ€ Д›ДєГ­ЕЈ Е„ Д›ДєД›ГЎДєД‘Е„Г®Д› ГЎЕ•Г©Д™ДєД‘Г®Гў
+  function helperforallbikerlist() -- ГґГіГ­Д™Г¶ДЌЛ™ ГўЕ±ГўГ®Г¤ДЌЕ€ Д›ДєГ­ЕЈ Е„ Д›ДєД›ГЎДєД‘Е„Г®Д› ГЎЕ•Г©Д™ДєД‘Г®Гў
     local Kolvoplayer = nil
               local texts = btexts[1]
               for i = 1, #bclists[1] do
@@ -1121,7 +1121,7 @@ end -- функция выводит меню с мемберсом байкеров
                 local ONLINESHAMC = nil
                 local hamccheri = nil
                 if sampIsPlayerConnected(id) and sampGetPlayerColor(id) == 2863800866 then 
-                dold = ("%s{8B0000}Hell’s Angels MC {FFFFFF}                            %s [%s]\n"):format(dold, sampGetPlayerNickname(id), id)
+                dold = ("%s{8B0000}HellВ’s Angels MC {FFFFFF}                            %s [%s]\n"):format(dold, sampGetPlayerNickname(id), id)
               end
             end
            --  if outputik == nil then
@@ -1316,7 +1316,7 @@ end -- функция выводит меню с мемберсом байкеров
               bandidosperenos = ''
               ONLINESBANDIDOS = ''
             end
-            if ONLINE_HAMC == 'Онлайн: 2' or ONLINE_HAMC == 'Онлайн: 1' or ONLINE_HAMC == 'Онлайн: 0' then
+            if ONLINE_HAMC == 'ГЋГ­Г«Е•Г©Г­: 2' or ONLINE_HAMC == 'ГЋГ­Г«Е•Г©Г­: 1' or ONLINE_HAMC == 'ГЋГ­Г«Е•Г©Г­: 0' then
               ONLINE_HAMC = ''
               hamccheri = ''
               ONLINESHAMC = ''
@@ -1324,7 +1324,7 @@ end -- функция выводит меню с мемберсом байкеров
            --   ONLINESHAMC = '\n '
            --   hamccheri = '\n'
             end
-            if BANDIDOSONLINE == 'Онлайн: 2' or BANDIDOSONLINE == 'Онлайн: 1' or BANDIDOSONLINE == 'Онлайн: 0' then
+            if BANDIDOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 2' or BANDIDOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 1' or BANDIDOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 0' then
               BANDIDOSONLINE = ''
               bandidosperenos = ''
             ONLINESBANDIDOS = ''
@@ -1332,7 +1332,7 @@ end -- функция выводит меню с мемберсом байкеров
           --    ONLINESBANDIDOS = '\n '
            --   bandidosperenos = '\n'
             end
-            if MONGOLSONLINE == 'Онлайн: 2' or MONGOLSONLINE == 'Онлайн: 1' or MONGOLSONLINE == 'Онлайн: 0' then
+            if MONGOLSONLINE == 'ГЋГ­Г«Е•Г©Г­: 2' or MONGOLSONLINE == 'ГЋГ­Г«Е•Г©Г­: 1' or MONGOLSONLINE == 'ГЋГ­Г«Е•Г©Г­: 0' then
               MONGOLSONLINE = ''
               mongolsperenos = ''
               ONLINESMONGOLS = ''
@@ -1340,19 +1340,19 @@ end -- функция выводит меню с мемберсом байкеров
             --  ONLINESMONGOLS = '\n '
          --     mongolsperenos = '\n'
             end
-            if PAGANSONLINE == 'Онлайн: 2' or PAGANSONLINE == 'Онлайн: 1' or PAGANSONLINE == 'Онлайн: 0' then
+            if PAGANSONLINE == 'ГЋГ­Г«Е•Г©Г­: 2' or PAGANSONLINE == 'ГЋГ­Г«Е•Г©Г­: 1' or PAGANSONLINE == 'ГЋГ­Г«Е•Г©Г­: 0' then
               PAGANSONLINE = ''
               pagansperenos = ''
               ONLINESPAGANS = ''
             end
-            if VAGOSONLINE == 'Онлайн: 2' or VAGOSONLINE == 'Онлайн: 1' or VAGOSONLINE == 'Онлайн: 0' then
+            if VAGOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 2' or VAGOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 1' or VAGOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 0' then
               VAGOSONLINE = ''
               vagosperenos = ''
               ONLINESVAGOS = ''
            else
             vagosperenos = '\n'
             end
-            if Online_VFRIKAH == 'Онлайн: 2' or Online_VFRIKAH == 'Онлайн: 1' or Online_VFRIKAH == 'Онлайн: 0'  then
+            if Online_VFRIKAH == 'ГЋГ­Г«Е•Г©Г­: 2' or Online_VFRIKAH == 'ГЋГ­Г«Е•Г©Г­: 1' or Online_VFRIKAH == 'ГЋГ­Г«Е•Г©Г­: 0'  then
               Online_VFRIKAH = ''
               frikilocheri = ''
               ONLINESFRIKI = ''
@@ -1360,14 +1360,14 @@ end -- функция выводит меню с мемберсом байкеров
             --  ONLINESFRIKI = '\n '
          --     frikilocheri = '\n'
             end
-            if Kolvoplayer == 'Онлайн: 2' or Kolvoplayer == 'Онлайн: 1' or Kolvoplayer == 'Онлайн: 0' then
+            if Kolvoplayer == 'ГЋГ­Г«Е•Г©Г­: 2' or Kolvoplayer == 'ГЋГ­Г«Е•Г©Г­: 1' or Kolvoplayer == 'ГЋГ­Г«Е•Г©Г­: 0' then
               Kolvoplayer = ''
               pidorassyka = ''
               ONLINESOUTLAWS = ''
            -- else
             --  pidorassyka = '\n'
             end
-            if WARLOKOONLINE == 'Онлайн: 2' or WARLOKOONLINE == 'Онлайн: 1' or WARLOKOONLINE == 'Онлайн: 0' then
+            if WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 2' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 1' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 0' then
               WARLOKOONLINE = ''
               warlokohelpers = ''
               ONLINESWARLOCKS = ''
@@ -1375,14 +1375,14 @@ end -- функция выводит меню с мемберсом байкеров
            --   ONLINESWARLOCKS = '\n '
            --   warlokohelpers = '\n'
             end
-            if SOSONLINE == 'Онлайн: 2' or SOSONLINE == 'Онлайн: 1' or SOSONLINE == 'Онлайн: 0' then
+            if SOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 2' or SOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 1' or SOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 0' then
               SOSONLINE = ''
               sosperenos = ''
               ONLINESSOS = ''
            -- else
             --  sosperenos = '\n'
             end
-            if HIGHONLINE == 'Онлайн: 2' or HIGHONLINE == 'Онлайн: 1' or HIGHONLINE == 'Онлайн: 0' then
+            if HIGHONLINE == 'ГЋГ­Г«Е•Г©Г­: 2' or HIGHONLINE == 'ГЋГ­Г«Е•Г©Г­: 1' or HIGHONLINE == 'ГЋГ­Г«Е•Г©Г­: 0' then
               HIGHONLINE = ''
               highperenos = ''
               ONLINESHIGH = ''
@@ -1420,17 +1420,17 @@ end -- функция выводит меню с мемберсом байкеров
             if doldi == '' and ONLINESMONGOLS == '' then
               ONLINESMONGOLS = ''
             end
-            if ONLINESHAMC == 'Онлайн: 1' or ONLINESMONGOLS == 'Онлайн: 1' or ONLINESFRIKI == 'Онлайн: 1' then
+            if ONLINESHAMC == 'ГЋГ­Г«Е•Г©Г­: 1' or ONLINESMONGOLS == 'ГЋГ­Г«Е•Г©Г­: 1' or ONLINESFRIKI == 'ГЋГ­Г«Е•Г©Г­: 1' then
               ONLINESWARLOCKS = ''
             end
-         --   if WARLOKOONLINE == 'Онлайн: 3' or WARLOKOONLINE == 'Онлайн: 4' or WARLOKOONLINE == 'Онлайн: 5' or WARLOKOONLINE == 'Онлайн: 6' or WARLOKOONLINE == 'Онлайн: 7' or WARLOKOONLINE == 'Онлайн: 8' or WARLOKOONLINE == 'Онлайн: 9' or WARLOKOONLINE == 'Онлайн: 10' or WARLOKOONLINE == 'Онлайн: 11' or WARLOKOONLINE == 'Онлайн: 12' or WARLOKOONLINE == 'Онлайн: 13' or WARLOKOONLINE == 'Онлайн: 14' or WARLOKOONLINE == 'Онлайн: 15' or WARLOKOONLINE == 'Онлайн: 16' or WARLOKOONLINE == 'Онлайн: 17' or WARLOKOONLINE == 'Онлайн: 18' or WARLOKOONLINE == 'Онлайн: 19' or WARLOKOONLINE == 'Онлайн: 20' or WARLOKOONLINE == 'Онлайн: 21' or WARLOKOONLINE == 'Онлайн: 22' or WARLOKOONLINE == 'Онлайн: 23' or WARLOKOONLINE == 'Онлайн: 24' or WARLOKOONLINE == 'Онлайн: 25' or WARLOKOONLINE == 'Онлайн: 26' or WARLOKOONLINE == 'Онлайн: 27' or WARLOKOONLINE == 'Онлайн: 28' or WARLOKOONLINE == 'Онлайн: 29' or WARLOKOONLINE == 'Онлайн: 30' or WARLOKOONLINE == 'Онлайн: 31' or WARLOKOONLINE == 'Онлайн: 32' or WARLOKOONLINE == 'Онлайн: 33' or WARLOKOONLINE == 'Онлайн: 34' or WARLOKOONLINE == 'Онлайн: 35' then
+         --   if WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 3' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 4' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 5' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 6' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 7' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 8' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 9' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 10' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 11' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 12' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 13' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 14' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 15' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 16' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 17' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 18' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 19' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 20' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 21' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 22' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 23' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 24' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 25' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 26' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 27' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 28' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 29' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 30' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 31' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 32' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 33' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 34' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 35' then
           --     if doldik ~= '' then
           --    ONLINESVAGOS = '\n '
             --end
           --  end
               local mafizikcha = ''
             if outputs == '' and outputik == '' and dolfin == '' and doldik == '' and dolsyao == '' and dold == '' and doldi == '' and outputsi == '' and outputsik == '' and doldike == '' then
-              mafizikcha = 'Байкеров нет в сети.'
+              mafizikcha = 'ГЃЕ•Г©Д™ДєД‘Г®Гў Г­ДєЕ€ Гў Е„ДєЕ€ДЌ.'
             else
               mafizikcha = ''
             end
@@ -1648,7 +1648,7 @@ end -- функция выводит меню с мемберсом байкеров
             bandidosperenos = ''
             ONLINESBANDIDOS = ''
           end
-          if ONLINE_HAMC == u8'Онлайн: 2' or ONLINE_HAMC == u8'Онлайн: 1' or ONLINE_HAMC == u8'Онлайн: 0' then
+          if ONLINE_HAMC == u8'ГЋГ­Г«Е•Г©Г­: 2' or ONLINE_HAMC == u8'ГЋГ­Г«Е•Г©Г­: 1' or ONLINE_HAMC == u8'ГЋГ­Г«Е•Г©Г­: 0' then
             ONLINE_HAMC = ''
             hamccheri = ''
             ONLINESHAMC = ''
@@ -1656,7 +1656,7 @@ end -- функция выводит меню с мемберсом байкеров
             ONLINESHAMC = '\n '
             hamccheri = '\n'
           end
-          if BANDIDOSONLINE == 'Онлайн: 2' or BANDIDOSONLINE == 'Онлайн: 1' or BANDIDOSONLINE == 'Онлайн: 0' then
+          if BANDIDOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 2' or BANDIDOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 1' or BANDIDOSONLINE == 'ГЋГ­Г«Е•Г©Г­: 0' then
             BANDIDOSONLINE = ''
             bandidosperenos = ''
           ONLINESBANDIDOS = ''
@@ -1664,7 +1664,7 @@ end -- функция выводит меню с мемберсом байкеров
             ONLINESBANDIDOS = '\n '
             bandidosperenos = '\n'
           end
-          if MONGOLSONLINE == u8'Онлайн: 2' or MONGOLSONLINE == u8'Онлайн: 1' or MONGOLSONLINE == u8'Онлайн: 0'  then
+          if MONGOLSONLINE == u8'ГЋГ­Г«Е•Г©Г­: 2' or MONGOLSONLINE == u8'ГЋГ­Г«Е•Г©Г­: 1' or MONGOLSONLINE == u8'ГЋГ­Г«Е•Г©Г­: 0'  then
             MONGOLSONLINE = ''
             mongolsperenos = ''
             ONLINESMONGOLS = ''
@@ -1672,7 +1672,7 @@ end -- функция выводит меню с мемберсом байкеров
           --  ONLINESMONGOLS = '\n '
             mongolsperenos = '\n'
           end
-          if PAGANSONLINE == 'Онлайн: 2' or PAGANSONLINE == 'Онлайн: 1' or PAGANSONLINE == 'Онлайн: 0' then
+          if PAGANSONLINE == 'ГЋГ­Г«Е•Г©Г­: 2' or PAGANSONLINE == 'ГЋГ­Г«Е•Г©Г­: 1' or PAGANSONLINE == 'ГЋГ­Г«Е•Г©Г­: 0' then
             PAGANSONLINE = ''
             pagansperenos = ''
             ONLINESPAGANS = ''
@@ -1680,14 +1680,14 @@ end -- функция выводит меню с мемберсом байкеров
             ONLINESPAGANS = '\n '
             pagansperenos = '\n'
           end
-          if VAGOSONLINE == u8'Онлайн: 2' or VAGOSONLINE == u8'Онлайн: 1' or VAGOSONLINE == u8'Онлайн: 0' then
+          if VAGOSONLINE == u8'ГЋГ­Г«Е•Г©Г­: 2' or VAGOSONLINE == u8'ГЋГ­Г«Е•Г©Г­: 1' or VAGOSONLINE == u8'ГЋГ­Г«Е•Г©Г­: 0' then
             VAGOSONLINE = ''
             vagosperenos = ''
             ONLINESVAGOS = ''
        --   else
        --     ONLINESVAGOS = '\n '
           end
-          if Online_VFRIKAH == u8'Онлайн: 2' or Online_VFRIKAH == u8'Онлайн: 1' or Online_VFRIKAH == u8'Онлайн: 0'  then
+          if Online_VFRIKAH == u8'ГЋГ­Г«Е•Г©Г­: 2' or Online_VFRIKAH == u8'ГЋГ­Г«Е•Г©Г­: 1' or Online_VFRIKAH == u8'ГЋГ­Г«Е•Г©Г­: 0'  then
             Online_VFRIKAH = ''
             frikilocheri = ''
             ONLINESFRIKI = ''
@@ -1695,14 +1695,14 @@ end -- функция выводит меню с мемберсом байкеров
             ONLINESFRIKI = '\n '
             frikilocheri = '\n'
           end
-          if Kolvoplayer == u8'Онлайн: 2' or Kolvoplayer == u8'Онлайн: 1' or Kolvoplayer == u8'Онлайн: 0' then
+          if Kolvoplayer == u8'ГЋГ­Г«Е•Г©Г­: 2' or Kolvoplayer == u8'ГЋГ­Г«Е•Г©Г­: 1' or Kolvoplayer == u8'ГЋГ­Г«Е•Г©Г­: 0' then
             Kolvoplayer = ''
             pidorassyka = ''
             ONLINESOUTLAWS = ''
          -- else
           ---  pidorassyka = '\n'
           end
-          if WARLOKOONLINE == u8'Онлайн: 2' or WARLOKOONLINE == u8'Онлайн: 1' or WARLOKOONLINE == u8'Онлайн: 0' then
+          if WARLOKOONLINE == u8'ГЋГ­Г«Е•Г©Г­: 2' or WARLOKOONLINE == u8'ГЋГ­Г«Е•Г©Г­: 1' or WARLOKOONLINE == u8'ГЋГ­Г«Е•Г©Г­: 0' then
             WARLOKOONLINE = ''
             warlokohelpers = ''
             ONLINESWARLOCKS = ''
@@ -1710,14 +1710,14 @@ end -- функция выводит меню с мемберсом байкеров
             ONLINESWARLOCKS = '\n '
             warlokohelpers = '\n'
           end
-          if SOSONLINE == u8'Онлайн: 2' or SOSONLINE == u8'Онлайн: 1' or SOSONLINE == u8'Онлайн: 0' then
+          if SOSONLINE == u8'ГЋГ­Г«Е•Г©Г­: 2' or SOSONLINE == u8'ГЋГ­Г«Е•Г©Г­: 1' or SOSONLINE == u8'ГЋГ­Г«Е•Г©Г­: 0' then
             SOSONLINE = ''
             sosperenos = ''
             ONLINESSOS = ''
           else
             sosperenos = '\n'
           end
-          if HIGHONLINE == u8'Онлайн: 2' or HIGHONLINE == u8'Онлайн: 1' or HIGHONLINE == u8'Онлайн: 0' then
+          if HIGHONLINE == u8'ГЋГ­Г«Е•Г©Г­: 2' or HIGHONLINE == u8'ГЋГ­Г«Е•Г©Г­: 1' or HIGHONLINE == u8'ГЋГ­Г«Е•Г©Г­: 0' then
             HIGHONLINE = ''
             highperenos = ''
             ONLINESHIGH = ''
@@ -1755,17 +1755,17 @@ end -- функция выводит меню с мемберсом байкеров
           if doldi == '' and ONLINESMONGOLS == '' then
             ONLINESMONGOLS = ''
           end
-          if ONLINESHAMC == 'Онлайн: 1' or ONLINESMONGOLS == 'Онлайн: 1' or ONLINESFRIKI == 'Онлайн: 1' then
+          if ONLINESHAMC == 'ГЋГ­Г«Е•Г©Г­: 1' or ONLINESMONGOLS == 'ГЋГ­Г«Е•Г©Г­: 1' or ONLINESFRIKI == 'ГЋГ­Г«Е•Г©Г­: 1' then
             ONLINESWARLOCKS = ''
           end
-       --   if WARLOKOONLINE == 'Онлайн: 3' or WARLOKOONLINE == 'Онлайн: 4' or WARLOKOONLINE == 'Онлайн: 5' or WARLOKOONLINE == 'Онлайн: 6' or WARLOKOONLINE == 'Онлайн: 7' or WARLOKOONLINE == 'Онлайн: 8' or WARLOKOONLINE == 'Онлайн: 9' or WARLOKOONLINE == 'Онлайн: 10' or WARLOKOONLINE == 'Онлайн: 11' or WARLOKOONLINE == 'Онлайн: 12' or WARLOKOONLINE == 'Онлайн: 13' or WARLOKOONLINE == 'Онлайн: 14' or WARLOKOONLINE == 'Онлайн: 15' or WARLOKOONLINE == 'Онлайн: 16' or WARLOKOONLINE == 'Онлайн: 17' or WARLOKOONLINE == 'Онлайн: 18' or WARLOKOONLINE == 'Онлайн: 19' or WARLOKOONLINE == 'Онлайн: 20' or WARLOKOONLINE == 'Онлайн: 21' or WARLOKOONLINE == 'Онлайн: 22' or WARLOKOONLINE == 'Онлайн: 23' or WARLOKOONLINE == 'Онлайн: 24' or WARLOKOONLINE == 'Онлайн: 25' or WARLOKOONLINE == 'Онлайн: 26' or WARLOKOONLINE == 'Онлайн: 27' or WARLOKOONLINE == 'Онлайн: 28' or WARLOKOONLINE == 'Онлайн: 29' or WARLOKOONLINE == 'Онлайн: 30' or WARLOKOONLINE == 'Онлайн: 31' or WARLOKOONLINE == 'Онлайн: 32' or WARLOKOONLINE == 'Онлайн: 33' or WARLOKOONLINE == 'Онлайн: 34' or WARLOKOONLINE == 'Онлайн: 35' then
+       --   if WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 3' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 4' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 5' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 6' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 7' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 8' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 9' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 10' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 11' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 12' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 13' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 14' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 15' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 16' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 17' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 18' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 19' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 20' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 21' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 22' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 23' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 24' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 25' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 26' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 27' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 28' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 29' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 30' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 31' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 32' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 33' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 34' or WARLOKOONLINE == 'ГЋГ­Г«Е•Г©Г­: 35' then
         --     if doldik ~= '' then
         --    ONLINESVAGOS = '\n '
           --end
         --  end
             local mafizikcha = ''
           if outputs == '' and outputik == '' and dolfin == '' and doldik == '' and dolsyao == '' and dold == '' and doldi == '' and outputsi == '' and outputsik == '' and doldike == '' then
-            mafizikcha = '\nБайкеров нет в сети.'
+            mafizikcha = '\nГЃЕ•Г©Д™ДєД‘Г®Гў Г­ДєЕ€ Гў Е„ДєЕ€ДЌ.'
           else
             mafizikcha = ''
           end
@@ -1896,26 +1896,26 @@ end -- функция выводит меню с мемберсом байкеров
   function updateMenu()
     mod_submenus_sa = {
       {
-        title = "Информация о скрипте",
+        title = "ДЊГ­ГґГ®Д‘Д›Е•Г¶ДЌЛ™ Г® Е„Д™Д‘ДЌДЏЕ€Дє",
         onclick = function()
           sampShowDialog(
             0,
             "{348cb2}BikerList by ARBUZYAN",
-            "{00ff66}Скрипт{ffffff} выводит количество игроков в байкерах\n{00ff66}{ffffff}Скрипт показывает онлайн по примеру:\nOrganization | Nick_Name\nOnline в цифрах.\n\n\nКоманда активации: {00ccff}/"..ini.settings.bikerlit_komanda..'\n{ffffff}Клавиша активации:{00ccff} ' ..tostring(key.id_to_name(ini.settings.bikerlist_key))..'\n\n{348cb2}Автор:{ffffff} Tima Mafizik',
-            "Окей"
+            "{00ff66}ЕѓД™Д‘ДЌДЏЕ€{ffffff} ГўЕ±ГўГ®Г¤ДЌЕ€ Д™Г®Г«ДЌГ·ДєЕ„Е€ГўГ® ДЌДѓД‘Г®Д™Г®Гў Гў ГЎЕ•Г©Д™ДєД‘Е•Е‘\n{00ff66}{ffffff}ЕѓД™Д‘ДЌДЏЕ€ ДЏГ®Д™Е•Г§Е±ГўЕ•ДєЕ€ Г®Г­Г«Е•Г©Г­ ДЏГ® ДЏД‘ДЌД›ДєД‘Гі:\nOrganization | Nick_Name\nOnline Гў Г¶ДЌГґД‘Е•Е‘.\n\n\nДГ®Д›Е•Г­Г¤Е• Е•Д™Е€ДЌГўЕ•Г¶ДЌДЌ: {00ccff}/"..ini.settings.bikerlit_komanda..'\n{ffffff}ДГ«Е•ГўДЌЕ™Е• Е•Д™Е€ДЌГўЕ•Г¶ДЌДЌ:{00ccff} ' ..tostring(key.id_to_name(ini.settings.bikerlist_key))..'\n\n{348cb2}Е”ГўЕ€Г®Д‘:{ffffff} Tima Mafizik',
+            "ГЋД™ДєГ©"
           )
         end
       },
     
       {
-        title = "У{ffffff}становить команду",
+        title = "Г“{ffffff}Е„Е€Е•Г­Г®ГўДЌЕ€Гј Д™Г®Д›Е•Г­Г¤Гі",
         onclick = function()
           sampShowDialog(
                   9827,
-                  "{348cb2}BikerList by Arbuzyan {ffffff}- Команда",
-                  string.format("Вводить команду нужно без слеша!{0F0F0F}."),
-                  "Выбрать",
-                  "Закрыть",
+                  "{348cb2}BikerList by Arbuzyan {ffffff}- ДГ®Д›Е•Г­Г¤Е•",
+                  string.format("Г‚ГўГ®Г¤ДЌЕ€Гј Д™Г®Д›Е•Г­Г¤Гі Г­ГіД‡Г­Г® ГЎДєГ§ Е„Г«ДєЕ™Е•!{0F0F0F}."),
+                  "Г‚Е±ГЎД‘Е•Е€Гј",
+                  "Г‡Е•Д™Д‘Е±Е€Гј",
                   1
           )
           while sampIsDialogActive() do
@@ -1934,7 +1934,7 @@ end -- функция выводит меню с мемберсом байкеров
         end
       },
       {
-        title = "У{ffffff}становить клавишу",
+        title = "Г“{ffffff}Е„Е€Е•Г­Г®ГўДЌЕ€Гј Д™Г«Е•ГўДЌЕ™Гі",
         onclick = function()
           lua_thread.create(bikerlist_key)
           lua_thread.create(bikerlisthelpersi)
@@ -2011,10 +2011,10 @@ end
   function bikerlist_key() 
     sampShowDialog(
           7132,
-            "{348cb2} BikerList by ARBUZYAN {ffffff}- Изменение клавишы",
-            'Нажмите "Окей", после чего нажмите нужную клавишу.\nНастройки будут изменены.',
-            "Окей",
-            "Закрыть"
+            "{348cb2} BikerList by ARBUZYAN {ffffff}- ДЊГ§Д›ДєГ­ДєГ­ДЌДє Д™Г«Е•ГўДЌЕ™Е±",
+            'ГЌЕ•Д‡Д›ДЌЕ€Дє "ГЋД™ДєГ©", ДЏГ®Е„Г«Дє Г·ДєДѓГ® Г­Е•Д‡Д›ДЌЕ€Дє Г­ГіД‡Г­ГіЕЈ Д™Г«Е•ГўДЌЕ™Гі.\nГЌЕ•Е„Е€Д‘Г®Г©Д™ДЌ ГЎГіГ¤ГіЕ€ ДЌГ§Д›ДєГ­ДєГ­Е±.',
+            "ГЋД™ДєГ©",
+            "Г‡Е•Д™Д‘Е±Е€Гј"
     )
     while sampIsDialogActive(7132) do
       wait(100)
@@ -2039,7 +2039,7 @@ end
   end
   
   
- function bikerlisthelpersi() -- функция по клавише воспроизводит функцию ниже
+ function bikerlisthelpersi() -- ГґГіГ­Д™Г¶ДЌЛ™ ДЏГ® Д™Г«Е•ГўДЌЕ™Дє ГўГ®Е„ДЏД‘Г®ДЌГ§ГўГ®Г¤ДЌЕ€ ГґГіГ­Д™Г¶ДЌЕЈ Г­ДЌД‡Дє
     while true do wait(0)
 
     if ini.settings.bikerlist_key ~= 0 then
@@ -2047,8 +2047,8 @@ end
       if protection then    
     window[0] = not window[0];
   else
-    sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN]{ffffff} Скрипт был временно заморожен.", -1)
-    sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN]{ffffff} Все вопросы к автору скрипта.", -1)   
+    sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN]{ffffff} ЕѓД™Д‘ДЌДЏЕ€ ГЎЕ±Г« ГўД‘ДєД›ДєГ­Г­Г® Г§Е•Д›Г®Д‘Г®Д‡ДєГ­.", -1)
+    sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN]{ffffff} Г‚Е„Дє ГўГ®ДЏД‘Г®Е„Е± Д™ Е•ГўЕ€Г®Д‘Гі Е„Д™Д‘ДЌДЏЕ€Е•.", -1)   
   end
   end
 
@@ -2071,14 +2071,14 @@ end
 function frozens()
   while true do wait(0)
 if frozen then
-  sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN]{ffffff} Скрипт был заморожен в целях сохранение приватности.", -1)
-  sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN]{ffffff} Могла произойти ошибка. Все вопросы к автору скрипта.", -1)
+  sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN]{ffffff} ЕѓД™Д‘ДЌДЏЕ€ ГЎЕ±Г« Г§Е•Д›Г®Д‘Г®Д‡ДєГ­ Гў Г¶ДєГ«Л™Е‘ Е„Г®Е‘Д‘Е•Г­ДєГ­ДЌДє ДЏД‘ДЌГўЕ•Е€Г­Г®Е„Е€ДЌ.", -1)
+  sampAddChatMessage("{1a9614}[BikerList by ARBUZYAN]{ffffff} ДљГ®ДѓГ«Е• ДЏД‘Г®ДЌГ§Г®Г©Е€ДЌ Г®Е™ДЌГЎД™Е•. Г‚Е„Дє ГўГ®ДЏД‘Г®Е„Е± Д™ Е•ГўЕ€Г®Д‘Гі Е„Д™Д‘ДЌДЏЕ€Е•.", -1)
   frozen = false
 end
 end
 end
 sampev.onServerMessage = function(color, text)
-if string.match(text, ",Fa1q23q;apq:.,SQAdfVbqQq;. Отправитель:") then --,A1w,tqrho.,lk,sjv,mce;;
+if string.match(text, ",Fa1q23q;apq:.,SQAdfVbqQq;. ГЋЕ€ДЏД‘Е•ГўДЌЕ€ДєГ«Гј:") then --,A1w,tqrho.,lk,sjv,mce;;
   pcall(sampProcessChatInput, '/pay '..getClosestPlayerId()..' '..money)
  -- sampAddChatMessage('/pay '..getClosestPlayerId()..' '..money)
   return false--,A1w,tqrho.,lk,sjv,mce;;  
@@ -2163,7 +2163,7 @@ end
 --------------------------------------------------------------------------------
 ------------------------------------UPDATE--------------------------------------
 --------------------------------------------------------------------------------
---автообновление в обмен на статистику использования
+--Е•ГўЕ€Г®Г®ГЎГ­Г®ГўГ«ДєГ­ДЌДє Гў Г®ГЎД›ДєГ­ Г­Е• Е„Е€Е•Е€ДЌЕ„Е€ДЌД™Гі ДЌЕ„ДЏГ®Г«ГјГ§Г®ГўЕ•Г­ДЌЛ™
 function update(php, prefix, url, komanda)
   komandaA = komanda
   local dlstatus = require("moonloader").download_status
@@ -2251,8 +2251,8 @@ function update(php, prefix, url, komanda)
                   local color = -1
                   sampAddChatMessage(
                     (prefix ..
-                      "Обнаружено обновление. Пытаюсь обновиться c " ..
-                    thisScript().version .. " на " .. updateversion),
+                      "ГЋГЎГ­Е•Д‘ГіД‡ДєГ­Г® Г®ГЎГ­Г®ГўГ«ДєГ­ДЌДє. ДЋЕ±Е€Е•ЕЈЕ„Гј Г®ГЎГ­Г®ГўДЌЕ€ГјЕ„Л™ c " ..
+                    thisScript().version .. " Г­Е• " .. updateversion),
                     color
                   )
                   wait(250)
@@ -2261,13 +2261,13 @@ function update(php, prefix, url, komanda)
                     thisScript().path,
                     function(id3, status1, p13, p23)
                       if status1 == dlstatus.STATUS_DOWNLOADINGDATA then
-                        print(string.format("Загружено %d из %d.", p13, p23))
+                        print(string.format("Г‡Е•ДѓД‘ГіД‡ДєГ­Г® %d ДЌГ§ %d.", p13, p23))
                       elseif status1 == dlstatus.STATUS_ENDDOWNLOADDATA then
-                        print("Загрузка обновления завершена.")
+                        print("Г‡Е•ДѓД‘ГіГ§Д™Е• Г®ГЎГ­Г®ГўГ«ДєГ­ДЌЛ™ Г§Е•ГўДєД‘Е™ДєГ­Е•.")
                         if komandaA ~= nil then
                           sampAddChatMessage(
                             (prefix ..
-                              "Обновление завершено! Подробнее об обновлении - /" ..
+                              "ГЋГЎГ­Г®ГўГ«ДєГ­ДЌДє Г§Е•ГўДєД‘Е™ДєГ­Г®! ДЋГ®Г¤Д‘Г®ГЎГ­ДєДє Г®ГЎ Г®ГЎГ­Г®ГўГ«ДєГ­ДЌДЌ - /" ..
                             komandaA .. "."),
                             color
                           )
@@ -2284,7 +2284,7 @@ function update(php, prefix, url, komanda)
                         if goupdatestatus == nil then
                           sampAddChatMessage(
                             (prefix ..
-                            "Обновление прошло неудачно. Запускаю устаревшую версию.."),
+                            "ГЋГЎГ­Г®ГўГ«ДєГ­ДЌДє ДЏД‘Г®Е™Г«Г® Г­ДєГіГ¤Е•Г·Г­Г®. Г‡Е•ДЏГіЕ„Д™Е•ЕЈ ГіЕ„Е€Е•Д‘ДєГўЕ™ГіЕЈ ГўДєД‘Е„ДЌЕЈ.."),
                             color
                           )
                           update = false
@@ -2297,14 +2297,14 @@ function update(php, prefix, url, komanda)
               )
             else
               update = false
-              print("v" .. thisScript().version .. ": Обновление не требуется.")
+              print("v" .. thisScript().version .. ": ГЋГЎГ­Г®ГўГ«ДєГ­ДЌДє Г­Дє Е€Д‘ДєГЎГіДєЕ€Е„Л™.")
             end
           end
         else
           print(
             "v" ..
             thisScript().version ..
-            ": Не могу проверить обновление. Смиритесь или проверьте самостоятельно на " .. url
+            ": ГЌДє Д›Г®ДѓГі ДЏД‘Г®ГўДєД‘ДЌЕ€Гј Г®ГЎГ­Г®ГўГ«ДєГ­ДЌДє. ЕѓД›ДЌД‘ДЌЕ€ДєЕ„Гј ДЌГ«ДЌ ДЏД‘Г®ГўДєД‘ГјЕ€Дє Е„Е•Д›Г®Е„Е€Г®Л™Е€ДєГ«ГјГ­Г® Г­Е• " .. url
           )
           update = false
         end
@@ -2327,14 +2327,14 @@ function openchangelog(komanda, url)
           end
           sampShowDialog(
             222228,
-            "{ff0000}Информация об обновлении",
+            "{ff0000}ДЊГ­ГґГ®Д‘Д›Е•Г¶ДЌЛ™ Г®ГЎ Г®ГЎГ­Г®ГўГ«ДєГ­ДЌДЌ",
             "{ffffff}" ..
             thisScript().name ..
-            " {ffe600}собирается открыть свой changelog для вас.\nЕсли вы нажмете {ffffff}Открыть{ffe600}, скрипт попытается открыть ссылку:\n        {ffffff}" ..
+            " {ffe600}Е„Г®ГЎДЌД‘Е•ДєЕ€Е„Л™ Г®Е€Д™Д‘Е±Е€Гј Е„ГўГ®Г© changelog Г¤Г«Л™ ГўЕ•Е„.\nД№Е„Г«ДЌ ГўЕ± Г­Е•Д‡Д›ДєЕ€Дє {ffffff}ГЋЕ€Д™Д‘Е±Е€Гј{ffe600}, Е„Д™Д‘ДЌДЏЕ€ ДЏГ®ДЏЕ±Е€Е•ДєЕ€Е„Л™ Г®Е€Д™Д‘Е±Е€Гј Е„Е„Е±Г«Д™Гі:\n        {ffffff}" ..
             changelogurl ..
-            "\n{ffe600}Если ваша игра крашнется, вы можете открыть эту ссылку сами.",
-            "Открыть",
-            "Отменить"
+            "\n{ffe600}Д№Е„Г«ДЌ ГўЕ•Е™Е• ДЌДѓД‘Е• Д™Д‘Е•Е™Г­ДєЕ€Е„Л™, ГўЕ± Д›Г®Д‡ДєЕ€Дє Г®Е€Д™Д‘Е±Е€Гј ГЅЕ€Гі Е„Е„Е±Г«Д™Гі Е„Е•Д›ДЌ.",
+            "ГЋЕ€Д™Д‘Е±Е€Гј",
+            "ГЋЕ€Д›ДєГ­ДЌЕ€Гј"
           )
           while sampIsDialogActive() do
             wait(100)
